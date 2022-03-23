@@ -1,0 +1,24 @@
+<h2 >Search Book</h2>
+<form action="/books" method="GET">
+  <div">
+    <div >
+      <label>Title</label>
+      <input type="text" name="title" value="<%= searchOptions.title %>">
+    </div>
+  </div>
+  <div >
+    <div>
+      <label>Published After</label>
+      <input type="date" name="publishedAfter" value="<%= searchOptions.publishedAfter %>">
+    </div>
+    <div >
+      <label>Published Before</label>
+      <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>">
+    </div>
+  </div>
+  <div >
+    <button class="btn btn-primary" type="submit">Search</button>
+  </div>
+</form>
+<br>
+<%- include('../partials/bookGrid', { books: books, large: true }) %>
