@@ -3,9 +3,12 @@ if(process.env.NODE_ENV !== "production") {
 }
 const express = require("express");
 const app =  express();
+//To access the Body of Request
+app.use(express.urlencoded({ extended: true }));
 const expressLayouts = require("express-ejs-layouts");
 
-const indexRouter =  require("./routes/index")
+const indexRouter =  require("./routes/index");
+const authorRouter =  require("./routes/authors");
 
 //Setting up the View
 app.set("view engine", "ejs");
@@ -24,6 +27,7 @@ db.on("error", error => console.error(error));
 db.once("open", () => console.log("Connected to MongoDB"));
 
 app.use("/",indexRouter);
+app.use("/authors", authorRouter);
 
 app.listen(process.env.PORT || 3000);
 
