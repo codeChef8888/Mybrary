@@ -6,8 +6,14 @@ if(process.env.NODE_ENV !== "production") {
 const express = require("express");
 const app =  express();
 
-//Inorder To access the Body of Request
-app.use(express.urlencoded({ extended: true }));
+
+//parse json information from the body
+app.use(express.json());
+// //Inorder To access the Body of Request
+// app.use(express.urlencoded({ extended: true }));
+
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))
 
 //Importing express-ejs-layouts package
 const expressLayouts = require("express-ejs-layouts");
@@ -22,6 +28,9 @@ app.set("view engine", "ejs");
 //set the path to Layouts i.e Boiler Plate HTML 
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts);
+
+//To use static files in public directory.. very absurd
+app.use(express.static("public"));
 
 
 //Setting Up the DataBase Connection
