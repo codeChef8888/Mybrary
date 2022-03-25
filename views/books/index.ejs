@@ -23,6 +23,7 @@
 <br>
 <div>
 <% books.forEach( book => { %> 
-<img height="150" width="100" src="<%= book.coverImagePath %>" title="<%= book.title %> <%= book.publishDate.toISOString().split('T')[0]%>">
+<a href="/books/<%= book.id %>" ><img height="150" width="100" src="<%= book.coverImagePath %>" title="<%= book.title %> <%= book.publishDate.toISOString().split('T')[0]%>"> 
+</a>
 <% }) %> 
 </div>

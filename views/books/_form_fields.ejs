@@ -3,17 +3,17 @@
     <input type="text" name="title" value="<%= book.title%>" />
 </div>
 <div>
-    <label>Author</label>
-    <select name="author">
-        <% authors.forEach(author => { %>
+    <label>Choose Author: </label>
+    <select name="author" style="width: 10%">
+      <% authors.forEach(author => { %>
         <% if (author.id === book.author) { %>
-        <option selected label="<%= author.name %>" value="<%= author.id %>">
-            <% } else { %>
-        <option label="<%= author.name %>" value="<%= author.id %>">
-            <% } %>
-            <% }) %>
+          <option selected label="<%= author.name %>" value="<%= author.id %>"><%= author.name %></option>>
+        <% } else { %>
+          <option label="<%= author.name %>" value="<%= author.id %>"><%= author.name %></option>
+        <% } %>
+      <% }) %>
     </select>
-</div>
+  </div>
 <div>
     <label>Publish Date</label>
     <input type="date" name="publishDate"
