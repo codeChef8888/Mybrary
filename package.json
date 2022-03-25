@@ -17,6 +17,7 @@
     "filepond-plugin-image-preview": "^4.6.10",
     "fs": "^0.0.1-security",
     "install": "^0.13.0",
+    "method-override": "^3.0.0",
     "mongoose": "^6.2.7"
   },
   "devDependencies": {

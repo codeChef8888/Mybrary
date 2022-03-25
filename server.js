@@ -13,7 +13,11 @@ app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override');
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))
+
+//To delete
+app.use(methodOverride('_method'));
 
 //Importing express-ejs-layouts package
 const expressLayouts = require("express-ejs-layouts");
